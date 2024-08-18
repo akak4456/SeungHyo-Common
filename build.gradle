@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.adele'
-version = '1.0.4'
+version = '1.0.5'
 
 repositories {
     mavenCentral()
@@ -17,4 +17,20 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            groupId = 'com.adele'
+            artifactId = 'SeungHyo-Common'
+            version = '1.0.5'
+        }
+    }
+    repositories {
+        maven {
+            url = uri("https://jitpack.io") // JitPack Maven 저장소 URL
+        }
+    }
 }
