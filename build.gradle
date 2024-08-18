@@ -1,20 +1,7 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
-
-// maven-publish 추가 시작
-apply plugin: 'maven-publish'
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId 'com.adele'
-            artifactId 'SeungHyo-Common'
-            version '1.0.0'
-            from components.java
-        }
-    }
-}
-// maven-publish 추가 끝
 
 group = 'com.adele'
 version = '1.0.0'
@@ -30,4 +17,20 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            groupId = 'com.adele'
+            artifactId = 'SeungHyo-Common'
+            version = '1.0.0'
+        }
+    }
+    repositories {
+        maven {
+            url = uri("https://jitpack.io")
+        }
+    }
 }
