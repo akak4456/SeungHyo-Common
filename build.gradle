@@ -18,14 +18,3 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-            groupId = 'com.adele'
-            artifactId = 'SeungHyo-Common'
-            version = '1.0.2'
-        }
-    }
-}
